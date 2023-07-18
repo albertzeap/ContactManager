@@ -1,5 +1,6 @@
 package com.cognixia.contactManager.repository;
 
+import java.sql.SQLException;
 import java.util.Optional;
 
 import com.cognixia.contactManager.model.User;
@@ -7,7 +8,7 @@ import com.cognixia.contactManager.model.User;
 public interface UserDao {
 	
 	// CREATE METHODS
-	public boolean createUser(String email, String password, String phoneNumber);
+	public boolean createUser(String email, String password, String phoneNumber) throws SQLException;
 	
-	public Optional<User> loginUser(String email, String password);
+	public Optional<User> getUserByCredentials(String email, String password) throws SQLException;
 }
