@@ -58,6 +58,7 @@
                     <MenuItem mnemonicParsing="false" text="Add Contact" />
                         <MenuItem mnemonicParsing="false" text="Delete Contact" />
                         <MenuItem mnemonicParsing="false" text="Update Contact" />
+                        <MenuItem mnemonicParsing="false" onAction="#refreshListClicked" text="Refresh" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">

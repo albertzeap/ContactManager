@@ -22,6 +22,10 @@ public class ContactListController {
 	@FXML
 	private MenuItem miLogout;
 	
+	@FXML
+	public void refreshListClicked(ActionEvent event) {
+		System.out.println("I entered!");
+	}
 	
 	@FXML
 	public void logoutClicked(ActionEvent event) {
