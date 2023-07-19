@@ -4,10 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.cognixia.contactManager.connection.ConnectionManager;
 import com.cognixia.contactManager.model.Contact;
+import com.cognixia.contactManager.model.User;
 
 public class ContactDaoSql implements ContactDao {
 	
@@ -102,6 +105,29 @@ public class ContactDaoSql implements ContactDao {
 		}
 		
 		return false;
+	}
+
+
+	@Override
+	public List<Contact> getUserContacts(User user) throws SQLException {
+		
+		PreparedStatement ps = conn.prepareStatement("SELECT c.id, c.first_name,c.last_name, c.phone_number FROM contact c JOIN user_contact uc ON c.id = uc.contact_id WHERE uc.user_id = ?;");
+		
+		ps.setInt(1, user.getId());
+		
+		ResultSet rs = ps.executeQuery();
+		List<Contact> contacts = new ArrayList<>();
+		
+		while(rs.next()) {
+			int id = rs.getInt(1);
+			String firstName = rs.getString(2);
+			String lastName = rs.getString(3);
+			String pNumber = rs.getString(4);
+			
+			contacts.add(new Contact(id, firstName, lastName, pNumber));
+		}
+		
+		return contacts;
 	}
 
 

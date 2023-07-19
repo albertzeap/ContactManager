@@ -20,8 +20,6 @@ public class UserController {
 		UserController.activeUser = activeUser;
 	}
 	
-	
-
 	public static boolean createUser(String email, String password, String phoneNumber) {
 		UserDao userDao = new UserDaoSql();
 		
