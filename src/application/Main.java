@@ -8,18 +8,24 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application {
+	
+	Stage window;
+	Scene login, dashboard;
+	
+	
 	@Override
 	public void start(Stage primaryStage) {
+		
 		try {
 //			BorderPane root = new BorderPane();
 //			Scene scene = new Scene(root,400,400);
 //			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			Parent root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
-			Scene scene = new Scene(root);
+			Scene login = new Scene(root);
 			
 			primaryStage.setTitle("Contact Manager");
-			primaryStage.setScene(scene);
+			primaryStage.setScene(login);
 			primaryStage.show();
 			
 			

@@ -1,11 +1,28 @@
 package com.cognixia.contactManager.controller;
 
+import java.sql.SQLException;
+import java.util.Optional;
+
+import com.cognixia.contactManager.exception.InvalidCredentialsException;
+import com.cognixia.contactManager.model.User;
 import com.cognixia.contactManager.repository.UserDao;
 import com.cognixia.contactManager.repository.UserDaoSql;
 
 public class UserController {
+	
+	private static User activeUser = null;
+	
+	public static User getActiveUser() {
+		return activeUser;
+	}
 
-	public boolean createUser(String email, String password, String phoneNumber) {
+	public static void setActiveUser(User activeUser) {
+		UserController.activeUser = activeUser;
+	}
+	
+	
+
+	public static boolean createUser(String email, String password, String phoneNumber) {
 		UserDao userDao = new UserDaoSql();
 		
 		try {
@@ -21,5 +38,30 @@ public class UserController {
 		}
 		
 		return true;
+	}
+	
+	public static void loginUser(String email, String password) throws SQLException, InvalidCredentialsException {
+		
+		UserDao userDao = new UserDaoSql();
+		
+		
+			
+			Optional<User> user = userDao.getUserByCredentials(email, password);
+			
+			if(user.isEmpty()) {
+				throw new InvalidCredentialsException();
+			}
+			
+			setActiveUser(user.get());
+			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} catch (InvalidCredentialsException e) {
+//			System.out.println(e.getMessage());
+//		}
+//		
+		
+//		return null;
+		
 	}
 }
