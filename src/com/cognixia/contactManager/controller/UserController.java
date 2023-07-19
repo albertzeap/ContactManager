@@ -53,15 +53,6 @@ public class UserController {
 			}
 			
 			setActiveUser(user.get());
-			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} catch (InvalidCredentialsException e) {
-//			System.out.println(e.getMessage());
-//		}
-//		
-		
-//		return null;
 		
 	}
 }

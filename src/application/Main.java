@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	
-	Stage window;
-	Scene login, dashboard;
+//	Stage window;
+//	Scene login, dashboard;
 	
 	
 	@Override
