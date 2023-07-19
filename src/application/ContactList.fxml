@@ -9,7 +9,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
@@ -39,26 +38,21 @@
       </ButtonBar>
    </bottom>
    <top>
-      <AnchorPane prefHeight="85.0" prefWidth="759.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" layoutX="218.0" layoutY="46.0" text="Welcome to your Contact Manager" textAlignment="CENTER">
-               <font>
-                  <Font name="Georgia" size="21.0" />
-               </font>
-            </Label>
-            <MenuBar layoutX="1.0" layoutY="1.0" prefHeight="26.0" prefWidth="757.0">
+      <BorderPane prefHeight="96.0" prefWidth="758.0" BorderPane.alignment="CENTER">
+         <top>
+            <MenuBar prefHeight="26.0" prefWidth="757.0" BorderPane.alignment="CENTER">
               <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#navigateHome" text="Home" />
+                    <MenuItem mnemonicParsing="false" onAction="#addContactClicked" text="Add" />
+                        <MenuItem mnemonicParsing="false" onAction="#updateContactClicked" text="Update" />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteContactClicked" text="Delete" />
+                  </items>
+                </Menu>
                 <Menu mnemonicParsing="false" text="Account">
                   <items>
                     <MenuItem fx:id="miLogout" mnemonicParsing="false" onAction="#logoutClicked" text="Logout" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Actions">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Add Contact" />
-                        <MenuItem mnemonicParsing="false" text="Delete Contact" />
-                        <MenuItem mnemonicParsing="false" text="Update Contact" />
-                        <MenuItem mnemonicParsing="false" onAction="#refreshListClicked" text="Refresh" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
@@ -68,7 +62,14 @@
                 </Menu>
               </menus>
             </MenuBar>
-         </children>
-      </AnchorPane>
+         </top>
+         <center>
+            <Label text="Welcome to your Contact Manager" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Georgia" size="21.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
    </top>
 </BorderPane>
