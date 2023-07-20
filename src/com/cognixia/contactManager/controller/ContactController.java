@@ -51,4 +51,24 @@ public class ContactController {
 		
 		return true;
 	}
+	
+	
+	public static void updateContact(String id, String name, String phoneNumber) {
+		
+		int contactId = Integer.valueOf(id);
+		String[] flName = name.split(" ");
+		
+		ContactDao contactDao = new ContactDaoSql();
+		
+		try {
+			Contact contact = new Contact(contactId, flName[0], flName[1], phoneNumber);
+			
+			contactDao.updateContact(contact);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

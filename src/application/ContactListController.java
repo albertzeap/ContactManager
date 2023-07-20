@@ -146,33 +146,15 @@ public class ContactListController implements Initializable {
 	@FXML
 	public void updateContactClicked(ActionEvent event) {
 		
-		Stage dashBoardWindow =  (Stage) contactTable.getScene().getWindow();
+		ContactController.updateContact(tfContactID.getText(), tfContactName.getText(), tfContactPhoneNumber.getText());
 		
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource("UpdateContact.fxml"));
-			Scene addContact = new Scene(root);
-			dashBoardWindow.setScene(addContact);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
+	
 	// Event Listener on Button.onAction
 	@FXML
 	public void deleteContactClicked(ActionEvent event) {
 		
-		Stage dashBoardWindow =  (Stage) contactTable.getScene().getWindow();
 		
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource("DeleteContact.fxml"));
-			Scene addContact = new Scene(root);
-			dashBoardWindow.setScene(addContact);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 	}
 

@@ -92,11 +92,12 @@ public class ContactDaoSql implements ContactDao {
 	@Override
 	public boolean updateContact(Contact contact) throws SQLException {
 		
-		PreparedStatement ps = conn.prepareStatement("UPDATE user_contact SET first_name = ?, last_name = ?, phone_number = ? WHERE contact_id = ?");
+		PreparedStatement ps = conn.prepareStatement("UPDATE contact SET first_name = ?, last_name = ?, phone_number = ? WHERE id = ?");
 		
 		ps.setString(1, contact.getFirstName());
 		ps.setString(2, contact.getLastName());
 		ps.setString(3, contact.getPhoneNumber());
+		ps.setInt(4, contact.getId());
 		
 		int count = ps.executeUpdate();
 		
