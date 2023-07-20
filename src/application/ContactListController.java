@@ -22,7 +22,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -53,6 +52,24 @@ public class ContactListController implements Initializable {
 	// add your data here from any source 
 	private ObservableList<ContactsModel> contactsModel = FXCollections.observableArrayList();
 	
+	
+	public void refreshScene() {
+		Stage dashBoardWindow = (Stage) contactTable.getScene().getWindow();
+		
+		try {
+			
+			Parent root = FXMLLoader.load(getClass().getResource("ContactList.fxml"));
+			Scene dashboard = new Scene(root);
+			
+			
+			dashBoardWindow.setScene(dashboard);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -79,9 +96,11 @@ public class ContactListController implements Initializable {
 	        // Allow data to be updated when clicked
 	        contactTable.setOnMouseClicked((MouseEvent event) -> {
 	    		ContactsModel contact = contactTable.getSelectionModel().getSelectedItem();
-	    		tfContactID.setText(String.valueOf(contact.getContactId()));
-	    		tfContactName.setText(String.valueOf(contact.getContactName()));
-	    		tfContactPhoneNumber.setText(String.valueOf(contact.getContactNumber()));
+	    		if(contact != null) {
+	    			tfContactID.setText(String.valueOf(contact.getContactId()));
+	    			tfContactName.setText(String.valueOf(contact.getContactName()));
+	    			tfContactPhoneNumber.setText(String.valueOf(contact.getContactNumber()));		
+	    		}
 	        });
 	        
 		
@@ -89,21 +108,7 @@ public class ContactListController implements Initializable {
 		
 	@FXML
 	public void navigateHome(ActionEvent event) {
-	
-		Stage dashBoardWindow = (Stage) contactTable.getScene().getWindow();
-		
-		try {
-			
-			Parent root = FXMLLoader.load(getClass().getResource("ContactList.fxml"));
-			Scene login = new Scene(root);
-			
-			
-			dashBoardWindow.setScene(login);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		refreshScene();
 	}
 	
 	@FXML
@@ -147,15 +152,16 @@ public class ContactListController implements Initializable {
 	public void updateContactClicked(ActionEvent event) {
 		
 		ContactController.updateContact(tfContactID.getText(), tfContactName.getText(), tfContactPhoneNumber.getText());
-		
+		refreshScene();
 	}
 	
 	// Event Listener on Button.onAction
 	@FXML
 	public void deleteContactClicked(ActionEvent event) {
+		System.out.println("CLICKED");
 		
-		
-		
+		ContactController.deleteContact(tfContactID.getText());
+		refreshScene();
 	}
 
 	

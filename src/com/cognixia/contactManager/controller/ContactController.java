@@ -71,4 +71,22 @@ public class ContactController {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void deleteContact(String id) {
+		
+		int contactId = Integer.valueOf(id);
+	
+		ContactDao contactDao = new ContactDaoSql();
+		
+		try {
+			
+			boolean success = contactDao.deleteContact(UserController.getActiveUser().getId(), contactId);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

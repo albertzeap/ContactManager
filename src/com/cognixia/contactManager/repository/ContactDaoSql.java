@@ -76,7 +76,7 @@ public class ContactDaoSql implements ContactDao {
 	@Override
 	public boolean deleteContact(int userId, int contactId) throws SQLException {
 		
-		PreparedStatement ps = conn.prepareStatement("DELETE FROM user_contact WHERE user_id = ?, contact_id = ?");
+		PreparedStatement ps = conn.prepareStatement("DELETE FROM user_contact WHERE user_id = ? AND contact_id = ?");
 		
 		ps.setInt(1, userId);
 		ps.setInt(2, contactId);

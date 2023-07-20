@@ -16,7 +16,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContactListController">
    <center>
-      <TableView fx:id="contactTable" editable="true" prefHeight="351.0" prefWidth="758.0" style="-fx-border-style: hidden;" BorderPane.alignment="CENTER">
+      <TableView fx:id="contactTable" editable="true" prefHeight="451.0" prefWidth="534.0" style="-fx-border-style: hidden;" BorderPane.alignment="CENTER">
         <columns>
             <TableColumn fx:id="contactId" prefWidth="45.60003662109375" text="ID" />
           <TableColumn fx:id="contactName" prefWidth="348.79998779296875" text="Name" />
@@ -84,4 +84,7 @@
          </children>
       </AnchorPane>
    </left>
+   <right>
+      <AnchorPane prefHeight="451.0" prefWidth="27.0" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>
