@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ActionsController">
    <top>
       <MenuBar fx:id="addMenuBar" BorderPane.alignment="CENTER">
@@ -19,8 +18,6 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#navigateHome" text="Home" />
                   <MenuItem mnemonicParsing="false" onAction="#addContactClicked" text="Add" />
-                  <MenuItem mnemonicParsing="false" onAction="#updateContactClicked" text="Update" />
-                  <MenuItem mnemonicParsing="false" onAction="#deleteContactClicked" text="Delete" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Account">
@@ -39,13 +36,14 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
+            <Label fx:id="addStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="306.0" layoutY="89.0" opacity="0.72" textAlignment="CENTER" textFill="#056e26" />
             <Label layoutX="238.0" layoutY="131.0" text="First Name" />
-            <TextField fx:id="tfFirstName" layoutX="239.0" layoutY="157.0" prefHeight="37.0" prefWidth="278.0" />
+            <TextField fx:id="tfaFirstName" layoutX="239.0" layoutY="157.0" prefHeight="37.0" prefWidth="278.0" />
             <Label layoutX="239.0" layoutY="227.0" text="Last Name" />
-            <TextField fx:id="tfLastName" layoutX="239.0" layoutY="251.0" prefHeight="37.0" prefWidth="278.0" />
+            <TextField fx:id="tfaLastName" layoutX="239.0" layoutY="251.0" prefHeight="37.0" prefWidth="278.0" />
             <Label layoutX="239.0" layoutY="320.0" text="Phone Number" />
-            <TextField fx:id="tfPhoneNumber" layoutX="239.0" layoutY="345.0" prefHeight="37.0" prefWidth="278.0" />
-            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="466.0" layoutY="408.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="55.0" text="Add" textAlignment="CENTER" />
+            <TextField fx:id="tfaPhoneNumber" layoutX="239.0" layoutY="345.0" prefHeight="37.0" prefWidth="278.0" />
+            <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="466.0" layoutY="408.0" mnemonicParsing="false" onAction="#addSubmit" prefHeight="26.0" prefWidth="55.0" text="Add" textAlignment="CENTER" />
             <Label layoutX="312.0" layoutY="37.0" text="Add Contact">
                <font>
                   <Font name="Georgia" size="24.0" />

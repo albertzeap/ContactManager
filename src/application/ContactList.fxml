@@ -9,12 +9,14 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContactListController">
    <center>
-      <TableView fx:id="contactTable" prefHeight="351.0" prefWidth="758.0" style="-fx-border-style: hidden;" BorderPane.alignment="CENTER">
+      <TableView fx:id="contactTable" editable="true" prefHeight="351.0" prefWidth="758.0" style="-fx-border-style: hidden;" BorderPane.alignment="CENTER">
         <columns>
             <TableColumn fx:id="contactId" prefWidth="45.60003662109375" text="ID" />
           <TableColumn fx:id="contactName" prefWidth="348.79998779296875" text="Name" />
@@ -29,8 +31,6 @@
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
           <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addContactClicked" text="Add" textAlignment="CENTER" />
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updateContactClicked" text="Update" textAlignment="CENTER" />
-            <Button alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#deleteContactClicked" prefHeight="26.0" text="Delete" textAlignment="CENTER" />
         </buttons>
          <BorderPane.margin>
             <Insets right="5.0" />
@@ -46,8 +46,6 @@
                   <items>
                         <MenuItem mnemonicParsing="false" onAction="#navigateHome" text="Home" />
                     <MenuItem mnemonicParsing="false" onAction="#addContactClicked" text="Add" />
-                        <MenuItem mnemonicParsing="false" onAction="#updateContactClicked" text="Update" />
-                        <MenuItem mnemonicParsing="false" onAction="#deleteContactClicked" text="Delete" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Account">
@@ -72,4 +70,18 @@
          </center>
       </BorderPane>
    </top>
+   <left>
+      <AnchorPane prefHeight="451.0" prefWidth="186.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="22.0" layoutY="56.0" text="ID" />
+            <TextField fx:id="tfContactID" disable="true" layoutX="22.0" layoutY="73.0" />
+            <TextField fx:id="tfContactName" layoutX="22.0" layoutY="163.0" />
+            <TextField fx:id="tfContactPhoneNumber" layoutX="22.0" layoutY="251.0" />
+            <Button layoutX="108.0" layoutY="291.0" mnemonicParsing="false" onAction="#updateContactClicked" text="Update" />
+            <Button layoutX="108.0" layoutY="339.0" mnemonicParsing="false" onAction="#deleteContactClicked" prefHeight="26.0" prefWidth="54.0" text="Delete" textFill="#8e0505" />
+            <Label layoutX="18.0" layoutY="136.0" text="Name" />
+            <Label layoutX="20.0" layoutY="226.0" text="Phone Number" />
+         </children>
+      </AnchorPane>
+   </left>
 </BorderPane>

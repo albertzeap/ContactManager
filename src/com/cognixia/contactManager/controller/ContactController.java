@@ -41,10 +41,12 @@ public class ContactController {
 			Contact contact = new Contact(0, firstName, lastName, phoneNumber);
 			contactDao.createContact(contact);
 			Optional<Contact> newContact = contactDao.getContactByPhoneNumber(contact.getPhoneNumber());
+			System.out.println(newContact.get());
 			contactDao.addContact(UserController.getActiveUser().getId(), newContact.get().getId());
 			return true;
-		} 
-		contactDao.addContact(UserController.getActiveUser().getId(), exists.get().getId());
+		} else {
+			contactDao.addContact(UserController.getActiveUser().getId(), exists.get().getId());			
+		}
 		
 		
 		return true;

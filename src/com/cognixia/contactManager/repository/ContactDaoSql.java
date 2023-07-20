@@ -23,7 +23,7 @@ public class ContactDaoSql implements ContactDao {
 		
 		ps.setString(1, contact.getFirstName());
 		ps.setString(2, contact.getLastName());
-		ps.setString(3, contact.getLastName());
+		ps.setString(3, contact.getPhoneNumber());
 		
 		int count = ps.executeUpdate();
 		
